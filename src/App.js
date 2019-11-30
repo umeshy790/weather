@@ -1,25 +1,24 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import Container from "./components/Container";
+import ThemeContext, { themes } from "./theming/Theme";
 
 function App() {
+  const [state, changeTheme] = useState({ mode: "light", toggleButton: () => {} });
+
+  state.toggleButton = () => {
+    if (state.mode === "light") {
+      changeTheme({ mode: "dark", toggleButton: () => {} });
+    }
+
+    if (state.mode === "dark") {
+      changeTheme({ mode: "light", toggleButton: () => {} });
+    }
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeContext.Provider value={state}>
+      <Container></Container>
+    </ThemeContext.Provider>
   );
 }
 
