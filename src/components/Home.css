@@ -4,6 +4,7 @@
   flex-direction: row;
   text-align: center;
   justify-content: space-between;
+  flex-wrap: wrap;
 }
 
 .container {
@@ -16,7 +17,6 @@
   height: 440px;
   width: 300px;
   box-sizing: border-box;
-  
 }
 
 /* .container:not(:first-child) {
@@ -36,7 +36,7 @@
 .title {
   /* font-family: Roboto; */
   font-weight: 500;
-  font-size: 1.2rem;
+  font-size: 1.2em;
   display: block;
 }
 
@@ -53,13 +53,13 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  font-size: 1rem;
+  font-size: 1em;
   padding: 0px 10px;
 }
 
 .svg-icon {
-  width: 4rem;
-  height: 4rem;
+  width: 4em;
+  height: 4em;
 }
 
 .svg-icon path,
@@ -71,4 +71,11 @@
 .svg-icon circle {
   stroke: #4691f6;
   stroke-width: 1;
+}
+
+@media (max-width: 720px) {
+  .body {
+    justify-content: center;
+    font-size: 1rem;
+  }
 }
